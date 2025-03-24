@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Contato - HospTech</title>
+    <style>
+        @keyframes zoom-in {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .zoom {
+            animation: zoom-in 0.5s ease forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo sem fundo.png" alt="Logo da HospTech" />
+                <span>HospTech</span>
+            </div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="nossos-servicos.html"><i class="fas fa-concierge-bell"></i> Nossos Serviços</a></li>
+                <li><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+                <li><a href="chat.html"><i class="fas fa-envelope"></i> Chat</a></li>
+                <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="zoom">Contato</h1>
+        <div class="contato-info">
+            <div class="caixa zoom">
+                <h2>Informações de Contato</h2>
+                <p><strong>Endereço:</strong> GASTAO VIDIGAL, C E DR-EF M PROFIS RUA LIBERO BADARO, 252 Bairro ZN 07
+                    C.E.P. 87030-080</p>
+            </div>
+            <div class="caixa zoom">
+                <p><strong>E-mail:</strong> <a
+                        href="mailto:projeto.hosptec2024@gmail.com">projeto.hosptec2024@gmail.com</a></p>
+            </div>
+            <div class="caixa zoom">
+                <p><strong>Telefone:</strong> +55 (44) 99812-1659</p>
+            </div>
+        </div>
+
+        <div class="mapa">
+            <h2 class="zoom">Localização</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1830.665366914834!2d-51.935636!3d-23.412417!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd12b19d66a27%3A0x89fe5eb0bbf8edac!2sCol%C3%A9gio%20Estadual%20Dr.%20Gast%C3%A3o%20Vidigal!5e0!3m2!1spt-BR!2sbr!4v1728048998068!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HospTech. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const zoomElements = document.querySelectorAll('.zoom');
+
+            function handleScroll() {
+                zoomElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        element.classList.add('zoom');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Verifica se os elementos estão visíveis no carregamento
+        });
+    </script>
+</body>
+
+</html>

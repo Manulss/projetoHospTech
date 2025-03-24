@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat-page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>HospTech - Chat Médico</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo sem fundo.png" alt="Logo da HospTech" height="50" />
+                <span>HospTech</span>
+            </div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="nossos-servicos.html"><i class="fas fa-concierge-bell"></i> Nossos Serviços</a></li>
+                <li><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+                <li><a href="chat.html"><i class="fas fa-envelope"></i> Chat</a></li>
+                <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <form id="form-messages">
+        <h1>Chat Médico Virtual</h1>
+        <div class="caixa-texto-hosptech">
+            <p>Olá! Eu sou o assistente médico virtual. Como posso ajudar você hoje? Digite sua dúvida ou faça uma
+                pergunta:</p>
+        </div>
+
+        <div class="chat-box" id="chat-box">
+            <div class="chat-bubble">Olá! Como posso te ajudar com informações sobre remédios ou dicas de saúde?</div>
+        </div>
+
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Digite sua dúvida...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </form>
+
+    <footer>
+        <p>&copy; 2024 HospTech. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const formChat = document.getElementById("form-messages")
+
+        formChat.addEventListener("submit", (event) => {
+            event.preventDefault()
+
+            sendMessage()
+        })
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== "") {
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('chat-bubble', 'chat-bubble-user');
+                userMessage.textContent = userInput;
+                chatBox.appendChild(userMessage);
+
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('chat-bubble');
+                botMessage.textContent = getBotResponse(userInput);
+                chatBox.appendChild(botMessage);
+
+                document.getElementById('user-input').value = "";
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase();
+
+            if (input.includes('remédio') || input.includes('medicamento')) {
+                return "Lembre-se de consultar um médico antes de tomar qualquer medicação. Alguns remédios populares incluem:\n\n1. **Paracetamol** - Usado para aliviar febre e dor.\n2. **Ibuprofeno** - Para dor e inflamação.\n3. **Dipirona** - Para dores intensas. Lembre-se, é sempre importante procurar orientação médica antes de usar qualquer medicamento.";
+            } else if (input.includes('dor de cabeça') || input.includes('cefaleia')) {
+                return "A dor de cabeça pode ter várias causas. Para dores leves, um analgésico comum pode ajudar. No entanto, se a dor for intensa ou persistente, o melhor é consultar um **neurologista** ou **clínico geral** para avaliar o quadro.";
+            } else if (input.includes('dor no peito')) {
+                return "A dor no peito pode ser um sintoma grave. Se for acompanhada de falta de ar, suor excessivo ou dor irradiando para o braço esquerdo, procure imediatamente um **cardiologista** ou dirija-se ao pronto-socorro. Caso seja uma dor muscular ou causada por estresse, consulte um **clínico geral**.";
+            } else if (input.includes('dor nas costas')) {
+                return "A dor nas costas pode ser causada por postura inadequada ou esforço excessivo. Use compressas quentes ou frias para aliviar a dor e mantenha uma boa postura. Se a dor for persistente, consulte um **ortopedista** ou **fisioterapeuta**.";
+            } else if (input.includes('febre')) {
+                return "Se você está com febre, descanse, beba bastante água e tome medicamentos como paracetamol para reduzir a febre. Se a febre persistir por mais de 48 horas, ou se vier acompanhada de sintomas graves, procure um **clínico geral**.";
+            } else if (input.includes('alimentação saudável') || input.includes('dicas de saúde')) {
+                return "Para manter uma alimentação saudável, busque consumir alimentos frescos, ricos em fibras, proteínas e vitaminas. Evite alimentos processados. A prática de exercícios regulares também é essencial. Consulte um **nutricionista** para um plano alimentar personalizado.";
+            } else {
+                return "Desculpe, ainda não estou totalmente finalizado para fornecer todas as respostas.";
+            }
+        }
+    </script>
+</body>
+
+</html>

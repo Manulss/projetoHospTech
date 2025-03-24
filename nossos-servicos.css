@@ -1,0 +1,180 @@
+/* Estilo para a seção Nossos Serviços */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e2e5ec; /* Branco */
+}
+
+header {
+    background: linear-gradient(to right,#3e44d6, #4fd4bc); /* Aplica um gradiente de fundo no cabeçalho */
+    color: #ffffff; /* Define a cor do texto no cabeçalho como branco */
+    padding: 15px 0; /* Aplica um preenchimento vertical de 15px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave abaixo do cabeçalho */
+}
+
+nav {
+    max-width: 1200px; /* Define a largura máxima da barra de navegação */
+    margin: 0 auto; /* Centraliza a barra de navegação */
+    display: flex; /* Aplica o flexbox para facilitar o alinhamento dos itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+}
+
+.logo {
+    display: flex; /* Usa flexbox para alinhar ícone e texto do logo */
+    align-items: center; /* Centraliza o ícone e o texto verticalmente */
+    margin-right: auto; /* Empurra o logo para a esquerda e o menu para a direita */
+    font-size: 1.3em; /* Define o tamanho da fonte do logo */
+}
+
+.logo img {
+    height: 60px; /* Define a altura da imagem do logo */
+    width: auto; /* Mantém a proporção da imagem */
+    vertical-align: middle; /* Alinha a imagem verticalmente */
+}
+
+.logo i {
+    margin-right: 10px; /* Adiciona espaço entre o ícone e o texto do logo */
+    color: #ffffff; /* Define a cor do ícone como branco */
+}
+
+
+nav ul {
+    list-style-type: none; /* Remove o estilo de lista (marcadores) */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display:flex; /* Exibe os itens de navegação em linha com flexbox */
+    justify-content: center; /* Centraliza os itens no container */
+    flex-wrap: wrap; /* Permite que os itens de navegação quebrem em várias linhas, se necessário */
+}
+
+nav ul li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: #ffffff;
+}
+
+nav ul li {
+    margin: 0 18px; /* Adiciona espaço de 20px entre os itens de navegação */
+    position: relative; /* Necessário para a criação de efeitos como o separador de itens */
+    
+}
+
+nav ul li a {
+    color: #ffffff; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Deixa o texto dos links em negrito */
+    transition: color 0.3s; /* Adiciona uma transição suave ao mudar a cor dos links */
+    padding: 10px 0; /* Adiciona preenchimento vertical aos links */
+    display: flex; /* Exibe os ícones e texto em linha */
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+    font-size: 1.3em; /* Define o tamanho da fonte dos links (ajuste conforme necessário) */
+}
+
+
+nav ul li a i {
+    margin-right: 8px; /* Adiciona espaço entre o ícone e o texto do link */
+}
+
+nav ul li a:hover {
+    color: #f9f9f9; /* Altera a cor do link para um branco mais claro ao passar o mouse */
+}
+
+
+#nossos-servicos {
+    background-color: #e0f7fa; /* Ciano */
+    padding: 40px;
+    text-align: center;
+}
+
+#nossos-servicos h2 {
+    color: #00695c; /* Azul esverdeado */
+    margin-bottom: 20px;
+}
+
+.servicos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.caixa {
+    background-color: #ffffff; /* Branco */
+    border: 1px solid #00bcd4; /* Ciano mais escuro */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.caixa h2 {
+    color: #00796b; /* Azul esverdeado mais escuro */
+    margin-bottom: 10px;
+}
+
+.caixa p {
+    color: #555; /* Texto cinza escuro */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #00bcd4; /* Ciano */
+    color: #ffffff; /* Branco */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilização adicional para os inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #00bcd4; /* Borda ciano */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+button {
+    background-color: #009688; /* Azul esverdeado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão ao passar o mouse */
+}
+
+button:hover {
+    background-color: #00796b; /* Tom mais escuro ao passar o mouse */
+}
+
+/*rodape*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o body tenha pelo menos a altura da tela */
+}
+
+main {
+    flex: 1; /* Faz o main ocupar o espaço disponível */
+}
+
+footer {
+    background-color: #0063d4; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Para permitir o posicionamento */
+}
+
+
+

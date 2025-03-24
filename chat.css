@@ -1,0 +1,120 @@
+.body {
+    background: #eef2f3;;
+    transition: all 0.5s;
+    padding: 1px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Estilos gerais para o formulário */
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte usada no corpo da página *0
+    background-color: #eef2f3; /* Define a cor de fundo do corpo */
+    margin: 0; /* Remove as margens padrão */
+    background-color: #eef2f3; /* Branco */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+header {
+    background: linear-gradient(to right,#3e44d6, #4fd4bc); /* Aplica um gradiente de fundo no cabeçalho */
+    color: #ffffff; /* Define a cor do texto no cabeçalho como branco */
+    padding: 15px 0; /* Aplica um preenchimento vertical de 15px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave abaixo do cabeçalho */
+}
+
+nav {
+    max-width: 1200px; /* Define a largura máxima da barra de navegação */
+    margin: 0 auto; /* Centraliza a barra de navegação */
+    display: flex; /* Aplica o flexbox para facilitar o alinhamento dos itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+}
+
+.logo {
+    display: flex; /* Usa flexbox para alinhar ícone e texto do logo */
+    align-items: center; /* Centraliza o ícone e o texto verticalmente */
+    margin-right: auto; /* Empurra o logo para a esquerda e o menu para a direita */
+    font-size: 1.5em; /* Define o tamanho da fonte do logo */
+}
+
+.logo img {
+    height: 60px; /* Define a altura da imagem do logo */
+    width: auto; /* Mantém a proporção da imagem */
+    vertical-align: middle; /* Alinha a imagem verticalmente */
+}
+
+.logo i {
+    margin-right: 10px; /* Adiciona espaço entre o ícone e o texto do logo */
+    color: #ffffff; /* Define a cor do ícone como branco */
+}
+
+
+nav ul {
+    list-style-type: none; /* Remove o estilo de lista (marcadores) */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Exibe os itens de navegação em linha com flexbox */
+    justify-content: center; /* Centraliza os itens no container */
+    flex-wrap: wrap; /* Permite que os itens de navegação quebrem em várias linhas, se necessário */
+}
+
+nav ul li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 20px;
+    background-color: #ffffff;
+}
+
+nav ul li {
+    margin: 0 18px; /* Adiciona espaço de 20px entre os itens de navegação */
+    position: relative; /* Necessário para a criação de efeitos como o separador de itens */
+    
+}
+
+nav ul li a {
+    color: #ffffff; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Deixa o texto dos links em negrito */
+    transition: color 0.3s; /* Adiciona uma transição suave ao mudar a cor dos links */
+    padding: 10px 0; /* Adiciona preenchimento vertical aos links */
+    display: flex; /* Exibe os ícones e texto em linha */
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+    font-size: 1.2em; /* Define o tamanho da fonte dos links (ajuste conforme necessário) */
+}
+
+
+nav ul li a i {
+    margin-right: 8px; /* Adiciona espaço entre o ícone e o texto do link */
+}
+
+nav ul li a:hover {
+    color: #f9f9f9; /* Altera a cor do link para um branco mais claro ao passar o mouse */
+}
+
+main h1{
+    text-align: center;
+    margin: 50px auto;
+    max-width: 900px; /* Limita a largura máxima da área principal */
+    padding: 20px; /* Espaçamento ao redor do conteúdo principal */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    font-size: 2.5em; /* Tamanho da fonte maior para o título */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    color: #00bcd4; /* Cor do título */
+}
+
+.caixa-texto-hosptech {
+    background-color: #e0f7fa; /* Um tom mais claro de ciano */
+    border: 2px solid #00bcd4; /* Borda ciano */
+    padding: 30px; /* Aumenta o padding para mais espaço interno */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+    display: inline-block; /* Ajusta o tamanho da caixa ao conteúdo */
+    max-width: 800px; /* Largura máxima da caixa */
+    font-size: 1.4em; /* Aumenta levemente o tamanho da fonte */
+}

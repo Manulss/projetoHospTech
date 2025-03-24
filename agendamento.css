@@ -1,0 +1,237 @@
+/* Estilos gerais para o formulário */
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte usada no corpo da página */
+    background-color: #eef2f3; /* Define a cor de fundo do corpo */
+    margin: 0; /* Remove as margens padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+/* Linha de separação */
+nav ul li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -10px; /* Alinha a linha à direita do item */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta para o centro */
+    width: 1px;
+    height: 20px; /* Altura da linha */
+    background-color: #ffffff; /* Cor da linha */
+}
+
+header {
+    background: linear-gradient(to right,#3e44d6, #4fd4bc); /* Aplica um gradiente de fundo no cabeçalho */
+    color: #ffffff; /* Define a cor do texto no cabeçalho como branco */
+    padding: 15px 0
+    ; /* Aplica um preenchimento vertical de 15px */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave abaixo do cabeçalho */
+}
+
+nav {
+    max-width: 1200px; /* Define a largura máxima da barra de navegação */
+    margin: 0 auto; /* Centraliza a barra de navegação */
+    display: flex; /* Aplica o flexbox para facilitar o alinhamento dos itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+}
+
+.logo {
+    display: flex; /* Usa flexbox para alinhar ícone e texto do logo */
+    align-items: center; /* Centraliza o ícone e o texto verticalmente */
+    margin-right: auto; /* Empurra o logo para a esquerda e o menu para a direita */
+    font-size: 1.5em; /* Define o tamanho da fonte do logo */
+}
+
+.logo img {
+    height: 60px; /* Define a altura da imagem do logo */
+    width: auto; /* Mantém a proporção da imagem */
+    vertical-align: middle; /* Alinha a imagem verticalmente */
+}
+
+.logo i {
+    margin-right: 10px; /* Adiciona espaço entre o ícone e o texto do logo */
+    color: #ffffff; /* Define a cor do ícone como branco */
+}
+
+nav ul {
+    list-style-type: none; /* Remove o estilo de lista (marcadores) */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+    display: flex; /* Exibe os itens de navegação em linha com flexbox */
+    justify-content: center; /* Centraliza os itens no container */
+    flex-wrap: wrap; /* Permite que os itens de navegação quebrem em várias linhas, se necessário */
+}
+
+nav ul li {
+    margin: 0 20px; /* Adiciona espaço de 20px entre os itens de navegação */
+    position: relative; /* Necessário para a criação de efeitos como o separador de itens */
+}
+
+nav ul li a {
+    color: #ffffff; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Deixa o texto dos links em negrito */
+    transition: color 0.3s; /* Adiciona uma transição suave ao mudar a cor dos links */
+    padding: 10px 0; /* Adiciona preenchimento vertical aos links */
+    display: flex; /* Exibe os ícones e texto em linha */
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+}
+
+nav ul li a i {
+    margin-right: 8px; /* Adiciona espaço entre o ícone e o texto do link */
+}
+
+nav ul li a:hover {
+    color: #f9f9f9; /* Altera a cor do link para um branco mais claro ao passar o mouse */
+}
+
+/* Estilo para os campos do formulário */
+.caixa-texto {
+    margin-bottom: 15px; /* Adiciona espaço entre os campos do formulário */
+    background-color: #ffffff; /* Define o fundo dos campos como branco */
+    border-radius: 10px; /* Aplica cantos arredondados */
+    padding: 20px; /* Adiciona preenchimento interno */
+    margin: 20px auto; /* Adiciona margem externa e centraliza o formulário */
+    max-width: 600px; /* Define a largura máxima do formulário */
+    box-shadow: 0 4px 20px rgba(102, 149, 163, 0.1); /* Adiciona uma sombra ao redor do formulário */
+    color: #000000;
+}
+
+.hospital {
+    color: #00bcd4;
+}
+
+h1 {
+    text-align: center; /* Centraliza o título h1 */
+    color: #00bcd4; /* Define a cor do título como um cinza escuro */
+}
+
+label {
+    font-weight: bold; /* Deixa o texto dos rótulos em negrito */
+    margin-top: 15px; /* Adiciona margem superior */
+    display: block; /* Faz o rótulo ocupar toda a linha */
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 98%; /* Define a largura dos inputs e selects */
+    padding: 12px; /* Adiciona preenchimento interno */
+    margin-top: 5px; /* Adiciona margem superior */
+    border: 1px solid #ccc; /* Define a borda dos inputs */
+    border-radius: 5px; /* Aplica cantos arredondados */
+    transition: border-color 0.3s; /* Adiciona uma transição suave ao mudar a cor da borda */
+    background-color: #e0f7fa; 
+    border: 1px solid #00bcd4; /* Ciano mais escuro */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #007bff; /* Altera a cor da borda ao focar no campo */
+    outline: none; /* Remove o contorno padrão do foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, .5); /* Adiciona uma sombra azul ao focar */
+}
+
+button {
+    background-color: #4fd4bc; /* Define a cor de fundo do botão */
+    color: white; /* Define a cor do texto do botão como branco */
+    padding: 12px 15px; /* Adiciona preenchimento interno */
+    border: none; /* Remove as bordas do botão */
+    border-radius: 5px; /* Aplica cantos arredondados ao botão */
+    cursor: pointer; /* Define o cursor do mouse como uma mão ao passar sobre o botão */
+    font-size: 16px; /* Define o tamanho da fonte */
+    margin-top: 20px; /* Adiciona margem superior */
+    transition: background-color 0.3s; /* Adiciona uma transição suave ao mudar a cor de fundo */
+    width: 100%; /* Define a largura do botão */
+}
+
+button:hover {
+    background-color: #00bcd4; /* Altera a cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilo para a lista de agendamentos */
+.lista-agendamentos {
+    margin: 20px auto; /* Adiciona margem vertical e centraliza a lista */
+    max-width: 600px; /* Define a largura máxima da lista de agendamentos */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+.agendamento-item {
+    background-color: #ffffff; /* Define o fundo dos itens da lista como branco */
+    border-radius: 10px; /* Aplica cantos arredondados aos itens */
+    padding: 15px; /* Adiciona preenchimento interno aos itens */
+    margin-bottom: 20px; /* Adiciona espaço entre os itens da lista */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao redor dos itens */
+}
+
+.agendamento-item h3 {
+    font-size: 18px; /* Define o tamanho da fonte dos títulos dentro dos itens */
+    color: #007bff; /* Define a cor dos títulos como azul */
+    margin-bottom: 10px; /* Adiciona espaço abaixo dos títulos */
+}
+
+.agendamento-item p {
+    font-size: 14px; /* Define o tamanho da fonte dos parágrafos */
+    color: #555; /* Define a cor do texto dos parágrafos como cinza */
+    margin: 5px 0; /* Adiciona margem vertical aos parágrafos */
+}
+
+.agendamento-item button {
+    background-color: #4fd4bc; /* Define a cor de fundo dos botões dentro dos itens */
+    color: white; /* Define a cor do texto dos botões como branco */
+    padding: 10px 15px; /* Adiciona preenchimento interno aos botões */
+    border: none; /* Remove as bordas dos botões */
+    border-radius: 5px; /* Aplica cantos arredondados aos botões */
+    cursor: pointer; /* Define o cursor como uma mão ao passar sobre os botões */
+    font-size: 14px; /* Define o tamanho da fonte dos botões */
+    margin-right: 10px; /* Adiciona espaço à direita dos botões */
+    transition: background-color 0.3s; /* Adiciona uma transição suave ao mudar a cor de fundo */
+}
+
+.agendamento-item button:hover {
+    background-color: #0056b3; /* Altera a cor de fundo ao passar o mouse */
+}
+
+.agendamento-item button:nth-child(2) {
+    background-color: #dc3545; /* Define a cor de fundo para o segundo botão (Excluir) */
+}
+
+.agendamento-item button:nth-child(2):hover {
+    background-color: #c82333; /* Altera a cor de fundo ao passar o mouse no botão (Excluir) */
+}
+
+/* Estilo para as opções do select */
+select {
+    appearance: none; /* Remove o estilo padrão dos selects */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="%23333"><polygon points="5,7 10,12 15,7" /></svg>'); /* Ícone de seta para o select */
+    background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+    background-position: right 10px center; /* Posiciona a seta no lado direito */
+    background-size: 12px; /* Define o tamanho da seta */
+    padding-right: 30px; /* Adiciona espaço à direita para a seta */
+}
+
+/* Animação de zoom */
+.zoom {
+    animation: zoom-in 0.5s ease forwards; /* Aplica a animação de zoom ao elemento */
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0.8); /* Reduz o tamanho inicial */
+        opacity: 0; /* Deixa o elemento invisível no início */
+    }
+    100% {
+        transform: scale(1); /* Restaura o tamanho original */
+        opacity: 1; /* Torna o elemento visível */
+    }
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: #00bcd4; /* Define a cor de fundo do rodapé */
+    color: white; /* Define a cor do texto no rodapé como branco */
+    text-align: center; /* Centraliza o texto no rodapé */
+    padding: 10px 0; /* Adiciona preenchimento vertical no rodapé */
+    position: relative; /* Define a posição relativa para ajustes */
+    bottom: 0; /* Posiciona o rodapé na parte inferior */
+    width: 100%; /* Define a largura do rodapé como 100% */
+}

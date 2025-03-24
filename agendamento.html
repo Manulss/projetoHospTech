@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agendamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Agendamento de Consulta - HospTech</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo sem fundo.png" alt="Logo da HospTech" />
+                <span>HospTech</span>
+            </div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="nossos-servicos.html"><i class="fas fa-concierge-bell"></i> Nossos Serviços</a></li>
+                <li><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+                <li><a href="chat.html"><i class="fas fa-envelope"></i> Chat</a></li>
+                <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+        <h1 class="zoom">Agendamento de Consulta</h1>
+
+        <div class="caixa-texto zoom">
+            <label for="estado">Estado:</label>
+            <select id="estado" name="estado" required>
+                <option value="">Escolha o estado</option>
+                <option value="ac">Acre</option>
+                <option value="al">Alagoas</option>
+                <option value="ap">Amapá</option>
+                <option value="am">Amazonas</option>
+                <option value="ba">Bahia</option>
+                <option value="ce">Ceará</option>
+                <option value="df">Distrito Federal</option>
+                <option value="es">Espírito Santo</option>
+                <option value="go">Goiás</option>
+                <option value="ma">Maranhão</option>
+                <option value="mt">Mato Grosso</option>
+                <option value="ms">Mato Grosso do Sul</option>
+                <option value="mg">Minas Gerais</option>
+                <option value="pa">Pará</option>
+                <option value="pb">Paraíba</option>
+                <option value="pr">Paraná</option>
+                <option value="pe">Pernambuco</option>
+                <option value="pi">Piauí</option>
+                <option value="rj">Rio de Janeiro</option>
+                <option value="rn">Rio Grande do Norte</option>
+                <option value="rs">Rio Grande do Sul</option>
+                <option value="ro">Rondônia</option>
+                <option value="rr">Roraima</option>
+                <option value="sc">Santa Catarina</option>
+                <option value="sp">São Paulo</option>
+                <option value="se">Sergipe</option>
+                <option value="to">Tocantins</option>
+            </select>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="cidade">Cidade:</label>
+            <select id="cidade" name="cidade" required>
+                <option value="">Escolha a cidade</option>
+                <!-- Cidades baseadas no estado selecionado -->
+            </select>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="hospital">Selecione o Hospital:</label>
+            <select id="hospital" name="hospital" required>
+                <option value="">Escolha um hospital</option>
+                <option value="hospital1">Hospital 1</option>
+                <option value="hospital2">Hospital 2</option>
+                <option value="hospital3">Hospital 3</option>
+            </select>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="tipo-consulta">Tipo de Consulta:</label>
+            <select id="tipo-consulta" name="tipo-consulta" required>
+                <option value="">Escolha o tipo de consulta</option>
+                <option value="consulta-geral">Consulta Geral</option>
+                <option value="consulta-especializada">Consulta Especializada</option>
+                <option value="exame">Exame</option>
+            </select>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="data">Selecione a Data:</label>
+            <input type="date" id="data" name="data" required>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="hora">Selecione a Hora:</label>
+            <select id="hora" name="hora" required>
+                <option value="">Escolha uma hora</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+            </select>
+        </div>
+
+        <div class="caixa-texto zoom">
+            <label for="prioridade">Prioridade:</label>
+            <select id="prioridade" name="prioridade" required>
+              <option value="normal">Normal</option>
+              <option value="idoso">Idoso (60+ anos)</option>
+              <option value="deficiencia">Pessoa com Deficiência</option>
+            </select>
+          </div>
+
+        <div class="caixa-texto zoom">
+            <button type="button" id="agendar-btn" disabled>Agendar Consulta</button>
+        </div>
+
+        <!-- Seção para exibir os agendamentos -->
+        <div id="lista-agendamentos" class="lista-agendamentos"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 HospTech. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formFields = [
+                document.getElementById('estado'),
+                document.getElementById('cidade'),
+                document.getElementById('hospital'),
+                document.getElementById('tipo-consulta'),
+                document.getElementById('data'),
+                document.getElementById('hora'),
+                document.getElementById('prioridade') //add o campo de prioridade
+            ];
+            const agendarBtn = document.getElementById('agendar-btn');
+            const estadoSelect = document.getElementById('estado');
+            const cidadeSelect = document.getElementById('cidade');
+            const listaAgendamentos = document.getElementById('lista-agendamentos');
+            const dataInput = document.getElementById('data');
+            
+            let agendamentos = []; // Fila para armazenar os agendamentos
+            let editIndex = -1; // Variável para identificar qual agendamento está sendo editado
+            
+            const cidadesPorEstado = {
+                ac: ["Rio Branco", "Cruzeiro do Sul", "Senador Guiomard"],
+                al: ["Maceió", "Arapiraca", "Palmeira dos Índios"],
+                ap: ["Macapá", "Santana", "Laranjal do Jari"],
+                am: ["Manaus", "Parintins", "Itacoatiara"],
+                ba: ["Salvador", "Feira de Santana", "Vitória da Conquista"],
+                ce: ["Fortaleza", "Caucaia", "Juazeiro do Norte"],
+                df: ["Brasília", "Gama", "Taguatinga"],
+                es: ["Vitória", "Vila Velha", "Serra"],
+                go: ["Goiânia", "Aparecida de Goiânia", "Anápolis"],
+                ma: ["São Luís", "Imperatriz", "Caxias"],
+                mt: ["Cuiabá", "Várzea Grande", "Rondonópolis"],
+                ms: ["Campo Grande", "Dourados", "Três Lagoas"],
+                mg: ["Belo Horizonte", "Uberlândia", "Contagem"],
+                pa: ["Belém", "Ananindeua", "Santarém"],
+                pb: ["João Pessoa", "Campina Grande", "Patos"],
+                pr: ["Curitiba", "Londrina", "Maringá"],
+                pe: ["Recife", "Olinda", "Jaboatão dos Guararapes"],
+                pi: ["Teresina", "Parnaíba", "Picos"],
+                rj: ["Rio de Janeiro", "Niterói", "Cabo Frio"],
+                rn: ["Natal", "Mossoró", "Currais Novos"],
+                rs: ["Porto Alegre", "Caxias do Sul", "Pelotas"],
+                ro: ["Porto Velho", "Ji-Paraná", "Vilhena"],
+                rr: ["Boa Vista", "Rorainópolis", "Caracaraí"],
+                sc: ["Florianópolis", "Joinville", "Blumenau"],
+                sp: ["São Paulo", "Campinas", "Santos"],
+                se: ["Aracaju", "Nossa Senhora do Socorro", "Lagarto"],
+                to: ["Palmas", "Araguaína", "Gurupi"]
+            };
+            estadoSelect.addEventListener('change', function () {
+                const estado = estadoSelect.value;
+                cidadeSelect.innerHTML = '<option value="">Escolha a cidade</option>';
+                if (estado) {
+                    cidadesPorEstado[estado].forEach(cidade => {
+                        const option = document.createElement('option');
+                        option.value = cidade.toLowerCase().replace(/\s/g, '-');
+                        option.textContent = cidade;
+                        cidadeSelect.appendChild(option);
+                    });
+                }
+            });
+
+            dataInput.min = new Date().toISOString().split('T')[0]; // Define o mínimo para a data como hoje
+            agendarBtn.addEventListener('click', function () {
+                const prioridadeValor = formFields[6].value; // Pega o valor da prioridade
+                // Armazenar os dados do agendamento em um objeto
+                const agendamento = {
+                    hospital: formFields[2].value,
+                    tipoConsulta: formFields[3].value,
+                    cidade: formFields[1].value,
+                    estado: formFields[0].value,
+                    data: formFields[4].value,
+                    hora: formFields[5].value,
+                    prioridade: prioridadeValor
+                };
+                if (editIndex === -1) {
+                    // Adicionar o agendamento à fila de agendamentos (se não for edição)
+                    agendamentos.push(agendamento);
+                } else {
+                    // Editar o agendamento existente
+                    agendamentos[editIndex] = agendamento;
+                    editIndex = -1;
+                }
+
+                //Ordenar os agendamentos pela prioridade
+                agendamentos.sort((a, b) =>{
+                    const prioridadeMap = {normal: 3, idoso: 2, deficiencia: 1};
+                    return prioridadeMap[a.prioridade] - prioridadeMap[b.prioridade];
+                })
+
+                // Exibir todos os agendamentos na tela
+                atualizarAgendamentos();
+                // Limpa todos os campos
+                formFields.forEach(field => {
+                    if (field.tagName === 'SELECT') {
+                        field.selectedIndex = 0;
+                    } else {
+                        field.value = '';
+                    }
+                });
+                cidadeSelect.innerHTML = '<option value="">Escolha a cidade</option>'; // Limpa as cidades
+                agendarBtn.disabled = true; // Desabilita o botão após o agendamento
+            });
+
+            function atualizarAgendamentos() {
+                listaAgendamentos.innerHTML = ''; // Limpa a lista de agendamentos
+                agendamentos.forEach((agendamento, index) => {
+                    const prioridadeTexto = agendamento.prioridade === "deficiencia" ? "Pessoa com Deficiência" : agendamento.prioridade === "idoso" ? 'Idoso' : 'Normal';
+
+                    const agendamentoHTML = `
+                        <div class="agendamento-item">
+                            <h3>Agendamento ${index + 1}</h3>
+                            <p><strong>Hospital:</strong> ${agendamento.hospital}</p>
+                            <p><strong>Tipo de Consulta:</strong> ${agendamento.tipoConsulta}</p>
+                            <p><strong>Cidade:</strong> ${agendamento.cidade}</p>
+                            <p><strong>Estado:</strong> ${agendamento.estado}</p>
+                            <p><strong>Data:</strong> ${agendamento.data}</p>
+                            <p><strong>Hora:</strong> ${agendamento.hora}</p>
+                            <p><strong>Prioridade:</strong> ${prioridadeTexto} </p>
+                            <button onclick="editarAgendamento(${index})">Editar</button>
+                            <button onclick="excluirAgendamento(${index})">Excluir</button>
+                        </div>
+                    `;
+                    listaAgendamentos.innerHTML += agendamentoHTML;
+                });
+            }
+
+            window.editarAgendamento = function (index) {
+                // Preenche os campos do formulário com os dados do agendamento a ser editado
+                const agendamento = agendamentos[index];
+                formFields[2].value = agendamento.hospital;
+                formFields[3].value = agendamento.tipoConsulta;
+                formFields[1].value = agendamento.cidade;
+                formFields[0].value = agendamento.estado;
+                formFields[4].value = agendamento.data;
+                formFields[5].value = agendamento.hora;
+                formFields[6].value = agendamento.prioridade;
+                editIndex = index; // Define o índice do agendamento que está sendo editado
+                agendarBtn.disabled = false; // Habilita o botão para salvar a edição
+            };
+
+            window.excluirAgendamento = function (index) {
+                // Remove o agendamento da fila
+                agendamentos.splice(index, 1);
+                atualizarAgendamentos(); // Atualiza a lista
+            };
+
+            function checkFormCompletion() {
+                const allFilled = formFields.every(field => field.value !== '');
+                agendarBtn.disabled = !allFilled;
+            }
+
+            formFields.forEach(field => {
+                field.addEventListener('change', checkFormCompletion);
+            });
+        });
+    </script>
+</body>
+</html>

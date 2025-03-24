@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Login - HospTech</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/logo sem fundo.png" alt="Logo da HospTech" />
+                <span>HospTech</span>
+            </div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="nossos-servicos.html"><i class="fas fa-concierge-bell"></i> Nossos Serviços</a></li>
+                <li><a href="agendamento.html"><i class="fas fa-calendar-check"></i> Agendamento</a></li>
+                <li><a href="chat.html"><i class="fas fa-envelope"></i> Chat</a></li>
+                <li><a href="contato.html"><i class="fas fa-envelope"></i> Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <div class="body">
+            <div class="veen">
+                <div class="login-btn splits">
+                    <p>Já é um usuário?</p>
+                    <button class="activ">Login</button>
+                </div>
+                <div class="rgstr-btn splits">
+                    <p>Não tem uma conta?</p>
+                    <button>Registrar</button>
+                </div>
+                <div class="wrapper">
+                    <form id="login" tabindex="500">
+                        <h3>Login</h3>
+                        <div class="mail">
+                            <input type="email" name="">
+                            <label>E-mail ou Nome de Usuário</label>
+                        </div>
+                        <div class="passwd">
+                            <input type="password" name="">
+                            <label>Senha</label>
+                        </div>
+                        <div class="submit">
+                            <button class="dark">Login</button>
+                        </div>
+                    </form>
+                    <form id="register" tabindex="502">
+                        <h3>Registrar</h3>
+                        <div class="name">
+                            <input type="text" name="">
+                            <label>Nome Completo</label>
+                        </div>
+                        <div class="mail">
+                            <input type="email" name="">
+                            <label>E-mail</label>
+                        </div>
+                        <div class="uid">
+                            <input type="text" name="">
+                            <label>Nome de Usuário</label>
+                        </div>
+                        <div class="passwd">
+                            <input type="password" name="">
+                            <label>Senha</label>
+                        </div>
+                        <div class="submit">
+                            <button class="dark">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>	
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 HospTech. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            $(".veen .rgstr-btn button").click(function(){
+                $('.veen .wrapper').addClass('move');
+                $('.body').css('background','#eef2f3;');
+                $(".veen .login-btn button").removeClass('active');
+                $(this).addClass('active');
+            });
+            $(".veen .login-btn button").click(function(){
+                $('.veen .wrapper').removeClass('move');
+                $('.body').css('background','#eef2f3;');
+                $(".veen .rgstr-btn button").removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const zoomElements = document.querySelectorAll('.zoom');
+
+            function handleScroll() {
+                zoomElements.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        element.classList.add('zoom');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Verifica se os elementos estão visíveis no carregamento
+        });
+    </script>
+</body>
+</html>
